@@ -34,7 +34,7 @@ if($('.slider-wrap_reviews .card').length >= 3) {
             }
         })
     })
-    $('.slider__review .card').mouseenter(() => {
+    $('.slider__review .card').simpleSwipe(() => {
         $('.slider-wrap_reviews .first-number').text(() => {
             if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
                 return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1);
