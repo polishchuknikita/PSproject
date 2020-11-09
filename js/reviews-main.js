@@ -52,6 +52,41 @@ if($('.slider-wrap_reviews .card').length >= 3) {
             }
         })
     })
+    $('.slider__review .card').swipe({
+        swipeStatus: function(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
+            if (phase == "start") { 
+                $('.slider-wrap_reviews .first-number').text(() => {
+                    console.log((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 'test1');
+                    if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
+                        return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1);
+                    } else {
+                        return (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 1;
+                    }
+                });
+            }
+            if (phase == "end") { 
+                $('.slider-wrap_reviews .first-number').text(() => {
+                    console.log((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 'test1');
+                    if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
+                        return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1);
+                    } else {
+                        return (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 1;
+                    }
+                });
+            }
+            if (phase == "cancel") { 
+                $('.slider-wrap_reviews .first-number').text(() => {
+                    console.log((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 'test1');
+                    if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
+                        return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1);
+                    } else {
+                        return (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 1;
+                    }
+                });
+            }
+        },
+        triggerOnTouchEnd: false
+    });
     $('.slider-wrap_reviews .first-number').text(() => {
         if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
             return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1);
@@ -140,18 +175,4 @@ if($('.slider-wrap_services-reviews .card').length >= 3) {
         }
     })
 }
-
-$(function () {
-    $('.slider__review .card').swipe({
-        swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
-            console.log('test');
-            $('.slider-wrap_reviews .first-number').text(() => {
-                if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
-                    return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 2);
-                } else {
-                    return (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 2;
-                }
-            });
-        }
-    });
-})
+    
