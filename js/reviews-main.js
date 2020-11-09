@@ -140,3 +140,18 @@ if($('.slider-wrap_services-reviews .card').length >= 3) {
         }
     })
 }
+
+$(function () {
+    $('.slider__review .card').swipe({
+        swipe: function(event, direction, distance, duration, fingerCount, fingerData) {
+            console.log('test');
+            $('.slider-wrap_reviews .first-number').text(() => {
+                if((+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 1) < 10) {
+                    return "0" + (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index') + 2);
+                } else {
+                    return (+$('.slider-wrap_reviews .slick-current').attr('data-slick-index')) + 2;
+                }
+            });
+        }
+    });
+})
